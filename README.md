@@ -51,9 +51,23 @@ How could you test that a simple user cannot reach the admin functions, if your 
 
 ### Usage
 
+#### Maven
+
+The project is still forming, but I will publish a proper release soon. For now, you can use the snapshot.
+```
+<dependency>
+  <groupId>hu.meza</groupId>
+  <artifactId>aao</artifactId>
+  <version>1.0-SNAPSHOT</version>
+</dependency
+```
+
+
 The code below is a ___rough___ implementation of the scenario above.
 
 You should:
+- __Only share state through ActorManager->actor->lastAction__
+  As soon as you start introducing step definition class members, you start tying steps together.
 - Extend custom ActorManagers for different types of users. Use Cucumber's DI to pass them on.
 - Implement Actions. It is tempting to create a god action that will for example do all the HTTP GET commands,
   but that would couple all child actions together strongly. Each action will only be modified because that
