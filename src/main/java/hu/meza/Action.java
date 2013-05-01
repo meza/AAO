@@ -5,7 +5,7 @@ public interface Action {
 
 	void execute();
 
-	Object requestData();
+	<T> T requestData();
 
-	Object responseData();
+	<T> T responseData();
 }
