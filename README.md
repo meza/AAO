@@ -27,7 +27,7 @@ Who am I? Who is "the other?"
       And the other user should receive a notification that I have viewed their profile
 ```
 
-Reframing the scenario above frmo a first person view to a third person view solves many problems.
+Reframing the scenario above from a first person view to a third person view however solves many problems.
 
 ```gherkin
   Scenario: view someone's profile
