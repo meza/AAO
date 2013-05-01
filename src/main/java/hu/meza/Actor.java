@@ -4,7 +4,7 @@ public abstract class Actor {
 
 	private Action lastAction;
 
-	public abstract Object authenticationData();
+	public abstract <T> T authenticationData();
 
 	public void execute(Action action) {
 		action.setAuthenticationData(authenticationData());
