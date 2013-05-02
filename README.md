@@ -44,8 +44,8 @@ When creating this 'framework', we wanted something lightweight and easy to use.
 seemed to cause most of our problems. It resulted in steps strongly tied together, and we did not want that
 to happen.
 
-Instead, we came to realize that every action in the product must be available to every actor.
-The ability for an actor to carry out an action should be decided by the product, and not the testing framework.
+Instead, we came to realize that _every action in the product must be available to every actor._
+__The ability for an actor to carry out an action should be decided by the product, and not the testing framework.__
 How could you test that a simple user cannot reach the admin functions, if your framework forbids him to even try?
 
 
