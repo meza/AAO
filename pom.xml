@@ -53,11 +53,12 @@
                     <dependency>
                         <groupId>hu.meza.tools</groupId>
                         <artifactId>checkstyle</artifactId>
-                        <version>0.3-SNAPSHOT</version>
+                        <version>LATEST</version>
                     </dependency>
                 </dependencies>
                 <configuration>
                     <configLocation>checkstyle.xml</configLocation>
+                    <includeTestSourceDirectory>true</includeTestSourceDirectory>
                     <consoleOutput>true</consoleOutput>
                 </configuration>
                 <executions>
@@ -79,6 +80,7 @@
                 <version>2.10</version>
                 <configuration>
                     <configLocation>checkstyle.xml</configLocation>
+                    <includeTestSourceDirectory>true</includeTestSourceDirectory>
                 </configuration>
             </plugin>
         </plugins>
