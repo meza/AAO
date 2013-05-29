@@ -53,12 +53,11 @@ How could you test that a simple user cannot reach the admin functions, if your 
 
 #### Maven
 
-The project is still forming, but I will publish a proper release soon. For now, you can use the snapshot.
 ```
 <dependency>
   <groupId>hu.meza</groupId>
   <artifactId>aao</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
 </dependency
 ```
 
