@@ -42,7 +42,7 @@ public abstract class ActorManager {
 	}
 
 	private boolean isRelativeActor(String label) {
-		return ("he".equals(label.toLowerCase()) || ("she".equals(label.toLowerCase())));
+		return "he".equals(label.toLowerCase()) || "she".equals(label.toLowerCase());
 	}
 
 }
