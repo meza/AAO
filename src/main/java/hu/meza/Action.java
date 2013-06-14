@@ -1,7 +1,7 @@
 package hu.meza;
 
 public interface Action {
-	void setAuthenticationData(Object data);
+	<T> void setAuthenticationData(T data);
 
 	void execute();
 
