@@ -28,6 +28,11 @@ public abstract class ActorManager {
 	}
 
 	public Actor addActor(String label, Actor actor) {
+
+		if (isRelativeActor(label)) {
+			throw new IllegalArgumentException(
+					String.format("%s is a relative actor, do not use as a label.", label));
+		}
 		actors.put(label, actor);
 		setLastActorLabel(label);
 		return actor;
