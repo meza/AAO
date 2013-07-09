@@ -1,4 +1,4 @@
-package hu.meza;
+package hu.meza.aao;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

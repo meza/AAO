@@ -1,4 +1,4 @@
-package hu.meza;
+package hu.meza.aao;
 
 public interface Action {
 	<T> void setAuthenticationData(T data);
