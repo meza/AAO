@@ -6,10 +6,15 @@ import java.util.concurrent.ConcurrentHashMap;
 public abstract class ActorManager {
 	private Map<String, Actor> actors;
 	private String lastLabel = "";
-
+	private ScenarioContext context;
 
 	protected ActorManager() {
+		this(new EmptyScenarioContext());
+	}
+
+	protected ActorManager(ScenarioContext context) {
 		actors = new ConcurrentHashMap<String, Actor>();
+		this.context = context;
 	}
 
 	public Actor getActor(String label) {
@@ -33,6 +38,7 @@ public abstract class ActorManager {
 			throw new IllegalArgumentException(
 					String.format("%s is a relative actor, do not use as a label.", label));
 		}
+		actor.setContext(context);
 		actors.put(label, actor);
 		setLastActorLabel(label);
 		return actor;
