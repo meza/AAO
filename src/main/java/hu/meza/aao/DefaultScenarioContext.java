@@ -22,23 +22,23 @@ public class DefaultScenarioContext implements ScenarioContext {
 	}
 
 	@Override
-	public void setLastAction(Action action) {
-		this.action = action;
-	}
-
-	@Override
 	public Action getLastAction() {
 		return action;
 	}
 
 	@Override
-	public void setLastActor(Actor actor) {
-		this.actor = actor;
+	public void setLastAction(Action action) {
+		this.action = action;
 	}
 
 	@Override
 	public Actor getLastActor() {
 		return actor;
+	}
+
+	@Override
+	public void setLastActor(Actor actor) {
+		this.actor = actor;
 	}
 
 }
