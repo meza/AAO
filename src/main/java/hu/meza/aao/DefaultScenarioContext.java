@@ -12,6 +12,7 @@ public class DefaultScenarioContext implements ScenarioContext {
 		try {
 			return (T) subject; //Why, oh why can't I catch class cast exceptions, dear Java!?
 		} catch (ClassCastException e) {
+			//Although this is dead code, I left it here to show my intentions.
 			throw new ContextSubjectAssumptionError(e.getMessage(), subject.getClass().getName());
 		}
 	}
