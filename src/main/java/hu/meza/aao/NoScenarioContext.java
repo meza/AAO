@@ -1,6 +1,6 @@
 package hu.meza.aao;
 
-public class AlzheimerContext implements ScenarioContext {
+public class NoScenarioContext implements ScenarioContext {
 	@Override
 	public <T> T getSubject() {
 		throw new NullObjecException();

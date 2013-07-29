@@ -1,9 +1,13 @@
 package hu.meza.aao;
 
-public abstract class Actor {
+public class Actor {
 
 	private Action lastAction;
 	private ScenarioContext context;
+
+	public Actor() {
+		context = new NoScenarioContext();
+	}
 
 	public void setContext(ScenarioContext context) {
 		this.context = context;

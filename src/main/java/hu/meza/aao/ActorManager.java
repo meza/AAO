@@ -3,13 +3,13 @@ package hu.meza.aao;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public abstract class ActorManager {
+public class ActorManager {
 	private Map<String, Actor> actors;
 	private String lastLabel = "";
 	private ScenarioContext context;
 
 	protected ActorManager() {
-		this(new AlzheimerContext());
+		this(new NoScenarioContext());
 	}
 
 	protected ActorManager(ScenarioContext context) {
@@ -24,8 +24,7 @@ public abstract class ActorManager {
 		}
 
 		if (!actors.containsKey(label)) {
-			String msg = String.format("Actor named: '%s' cannot be found within the actors", label);
-			throw new RuntimeException(msg);
+			throw new ActorNotFoundException(label);
 		}
 
 		setLastActor(label);
@@ -45,12 +44,15 @@ public abstract class ActorManager {
 	}
 
 	public Actor lastActor() {
+		if (actors.isEmpty()) {
+			throw new ActorManagerIsEmptyException();
+		}
 		return getActor(lastLabel);
 	}
 
 	private synchronized void setLastActor(String label) {
 		lastLabel = label;
-		context.setLastActor(getActor(label));
+		context.setLastActor(actors.get(label));
 	}
 
 	private boolean isRelativeActor(String label) {
