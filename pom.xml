@@ -41,6 +41,14 @@
         <developerConnection>scm:git:git@github.com:meza/AAO.git</developerConnection>
     </scm>
 
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+    </dependencies>
+
     <build>
 
         <plugins>

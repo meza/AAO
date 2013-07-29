@@ -9,11 +9,11 @@ public abstract class ActorManager {
 	private ScenarioContext context;
 
 	protected ActorManager() {
-		this(new EmptyScenarioContext());
+		this(new AlzheimerContext());
 	}
 
 	protected ActorManager(ScenarioContext context) {
-		actors = new ConcurrentHashMap<String, Actor>();
+		actors = new ConcurrentHashMap<>();
 		this.context = context;
 	}
 
@@ -28,7 +28,7 @@ public abstract class ActorManager {
 			throw new RuntimeException(msg);
 		}
 
-		setLastActorLabel(label);
+		setLastActor(label);
 		return actors.get(label);
 	}
 
@@ -40,7 +40,7 @@ public abstract class ActorManager {
 		}
 		actor.setContext(context);
 		actors.put(label, actor);
-		setLastActorLabel(label);
+		setLastActor(label);
 		return actor;
 	}
 
@@ -48,8 +48,9 @@ public abstract class ActorManager {
 		return getActor(lastLabel);
 	}
 
-	private synchronized void setLastActorLabel(String label) {
+	private synchronized void setLastActor(String label) {
 		lastLabel = label;
+		context.setLastActor(getActor(label));
 	}
 
 	private boolean isRelativeActor(String label) {

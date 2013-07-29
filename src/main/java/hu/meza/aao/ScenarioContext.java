@@ -5,7 +5,11 @@ public interface ScenarioContext {
 
 	<T> void setSubject(T subject);
 
+	Action getLastAction();
+
 	void setLastAction(Action action);
 
-	Action getLastAction();
+	Actor getLastActor();
+
+	void setLastActor(Actor actor);
 }
