@@ -1,19 +1,41 @@
 package hu.meza.aao;
 
-public abstract class Actor {
+public class Actor {
 
 	private Action lastAction;
+	private ScenarioContext context;
+	private String label;
 
-	public abstract <T> T authenticationData();
+	public Actor() {
+		context = new NoScenarioContext();
+	}
+
+	public void setContext(ScenarioContext context) {
+		this.context = context;
+	}
 
 	public void execute(Action action) {
-		action.setAuthenticationData(authenticationData());
 		action.execute();
-		lastAction = action;
+		setLastAction(action);
 	}
 
 	public Action lastAction() {
 		return lastAction;
+	}
+
+	public String getLabel() {
+		return label;
+	}
+
+	public void setLabel(String label) {
+		if (this.label == null) {
+			this.label = label;
+		}
+	}
+
+	protected void setLastAction(Action action) {
+		lastAction = action;
+		context.setLastAction(lastAction());
 	}
 
 }

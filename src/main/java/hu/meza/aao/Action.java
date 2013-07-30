@@ -1,11 +1,7 @@
 package hu.meza.aao;
 
-public interface Action {
-	<T> void setAuthenticationData(T data);
-
+public interface Action extends Cloneable {
 	void execute();
 
-	<T> T requestData();
-
-	<T> T responseData();
+	<T> T copyOf();
 }
