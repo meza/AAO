@@ -57,9 +57,19 @@ How could you test that a simple user cannot reach the admin functions, if your 
 <dependency>
   <groupId>hu.meza</groupId>
   <artifactId>aao</artifactId>
-  <version>1.0</version>
+  <version>RELEASE</version>
 </dependency
 ```
+
+or if you're interested in the bleding edge:
+```
+<dependency>
+  <groupId>hu.meza</groupId>
+  <artifactId>aao</artifactId>
+  <version>LATEST_SNAPSHOT</version>
+</dependency
+```
+
 
 
 The code below is a ___rough___ implementation of the scenario above.
