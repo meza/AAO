@@ -191,4 +191,4 @@ To use it for ```Actor``` and ```Action``` tracking, you need to pass your ```Sc
 
 ### Usage
 
-coming up
+Until further documentation, please refer to the example in ```hu.meza.aao.example.ContextAwareStepDefs```
