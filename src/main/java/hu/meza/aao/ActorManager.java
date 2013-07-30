@@ -1,19 +1,22 @@
 package hu.meza.aao;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class ActorManager {
+public class ActorManager implements Iterable<Actor> {
 	private Map<String, Actor> actors;
 	private String lastLabel = "";
 	private ScenarioContext context;
 
-	protected ActorManager() {
-		this(new NoScenarioContext());
+	public ActorManager() {
+		actors = new ConcurrentHashMap<>();
+		this.addContext(new NoScenarioContext());
 	}
 
-	protected ActorManager(ScenarioContext context) {
-		actors = new ConcurrentHashMap<>();
+	public void addContext(ScenarioContext context) {
 		this.context = context;
 	}
 
@@ -38,6 +41,7 @@ public class ActorManager {
 					String.format("%s is a relative actor, do not use as a label.", label));
 		}
 		actor.setContext(context);
+		actor.setLabel(label);
 		actors.put(label, actor);
 		setLastActor(label);
 		return actor;
@@ -48,6 +52,18 @@ public class ActorManager {
 			throw new ActorManagerIsEmptyException();
 		}
 		return getActor(lastLabel);
+	}
+
+	@Override
+	public Iterator<Actor> iterator() {
+		List<Actor> actorList = new ArrayList<>();
+
+		for (Map.Entry<String, Actor> entry : actors.entrySet()) {
+			actorList.add(entry.getValue());
+		}
+
+		return actorList.iterator();
+
 	}
 
 	private synchronized void setLastActor(String label) {

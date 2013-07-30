@@ -12,4 +12,6 @@ public interface ScenarioContext {
 	Actor getLastActor();
 
 	void setLastActor(Actor actor);
+
+	void clean();
 }

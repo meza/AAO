@@ -24,7 +24,10 @@ public class DefaultScenarioContext implements ScenarioContext {
 
 	@Override
 	public Action getLastAction() {
-		return action;
+		if (action == null) {
+			return null;
+		}
+		return action.copyOf();
 	}
 
 	@Override
@@ -40,6 +43,13 @@ public class DefaultScenarioContext implements ScenarioContext {
 	@Override
 	public void setLastActor(Actor actor) {
 		this.actor = actor;
+	}
+
+	@Override
+	public void clean() {
+		subject = null;
+		action = null;
+		actor = null;
 	}
 
 }

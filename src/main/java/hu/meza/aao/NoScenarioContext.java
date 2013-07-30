@@ -30,4 +30,9 @@ public class NoScenarioContext implements ScenarioContext {
 	public void setLastActor(Actor actor) {
 
 	}
+
+	@Override
+	public void clean() {
+
+	}
 }

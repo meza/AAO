@@ -76,7 +76,8 @@ public class ActorManagerTest {
 	@Test
 	public void addLastActorToContext() {
 		ScenarioContext ctx = Mockito.mock(ScenarioContext.class);
-		ActorManager contextAwareManager = new ActorManager(ctx);
+		ActorManager contextAwareManager = new ActorManager();
+		contextAwareManager.addContext(ctx);
 
 		final Actor actor = Mockito.mock(Actor.class);
 		contextAwareManager.addActor(randomLabel(), actor);

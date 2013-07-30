@@ -4,6 +4,7 @@ public class Actor {
 
 	private Action lastAction;
 	private ScenarioContext context;
+	private String label;
 
 	public Actor() {
 		context = new NoScenarioContext();
@@ -20,6 +21,16 @@ public class Actor {
 
 	public Action lastAction() {
 		return lastAction;
+	}
+
+	public String getLabel() {
+		return label;
+	}
+
+	public void setLabel(String label) {
+		if (this.label == null) {
+			this.label = label;
+		}
 	}
 
 	protected void setLastAction(Action action) {
