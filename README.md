@@ -78,7 +78,7 @@ You should:
   supported. Everything is supported with a little effort. Make it readable, understandable and easy to use.
 
 ```java
-public class LoggedInUser extends Actor {
+public class LoggedInUser extends RestfulActor {
 
 	private String name;
 
@@ -96,7 +96,7 @@ public class LoggedInUser extends Actor {
 	}
 }
 
-public class ViewProfileOf implements Action {
+public class ViewProfileOf implements RestfulAction {
 
 	private Object authData;
 	private LoggedInUser targetUser;
@@ -170,3 +170,25 @@ public class MyStepdefs {
 
 }
 ```
+
+## Context awareness
+
+During a chat with the lovely Liz Keogh, we agreed that in normal conversations, we tend to use relative references
+of things, people and happenings, and we all know, that the most important value of BDD is capturing conversations.
+My biggest worry with this approach is that the simplest way of keeping context between steps is using class members
+in the step definition code. This however would circle back to the original problem I was trying to solve.
+So tempted by this discussion, context awarenes came to life in this "framework".
+
+### Parts
+
+The main part of the system is the ```ScenarioContext```. It can hold the subject the conversation is happening
+about, the last ```Actor``` mentioned and the last ```Action``` executed.
+
+To use it for subject tracking, you need to manually set the subject within a step definition where needed.
+
+To use it for ```Actor``` and ```Action``` tracking, you need to pass your ```ScenarioContext``` object to the
+```ActorManager``` or an individual ```Actor```. (I'd recommend the former)
+
+### Usage
+
+Until further documentation, please refer to the example in ```hu.meza.aao.example.ContextAwareStepDefs```
