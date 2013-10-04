@@ -67,10 +67,10 @@ public class ActorManagerTest {
 		actorManager.addActor("second", secondActor);
 		actorManager.addActor(randomLabel(), actor);
 		Assert.assertEquals("The wrong last actor was returned from the actor manager", actor,
-							actorManager.lastActor());
+			actorManager.lastActor());
 		actorManager.getActor("second");
 		Assert.assertEquals("The wrong last actor was returned from the actor manager", secondActor,
-							actorManager.lastActor());
+			actorManager.lastActor());
 	}
 
 	@Test

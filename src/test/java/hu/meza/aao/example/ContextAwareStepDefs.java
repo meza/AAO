@@ -67,8 +67,8 @@ public class ContextAwareStepDefs {
 			}
 
 			Assert.assertEquals(
-					String.format("The search term did not yield the same results for %s", actor.getLabel()),
-					previousResult, result);
+				String.format("The search term did not yield the same results for %s", actor.getLabel()),
+				previousResult, result);
 
 		}
 

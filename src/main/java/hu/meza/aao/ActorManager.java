@@ -12,7 +12,7 @@ public class ActorManager implements Iterable<Actor> {
 	private ScenarioContext context;
 
 	public ActorManager() {
-		actors = new ConcurrentHashMap<>();
+		actors = new ConcurrentHashMap<String, Actor>();
 		this.addContext(new NoScenarioContext());
 	}
 
@@ -38,7 +38,7 @@ public class ActorManager implements Iterable<Actor> {
 
 		if (isRelativeActor(label)) {
 			throw new IllegalArgumentException(
-					String.format("%s is a relative actor, do not use as a label.", label));
+				String.format("%s is a relative actor, do not use as a label.", label));
 		}
 		actor.setContext(context);
 		actor.setLabel(label);
@@ -56,7 +56,7 @@ public class ActorManager implements Iterable<Actor> {
 
 	@Override
 	public Iterator<Actor> iterator() {
-		List<Actor> actorList = new ArrayList<>();
+		List<Actor> actorList = new ArrayList<Actor>();
 
 		for (Map.Entry<String, Actor> entry : actors.entrySet()) {
 			actorList.add(entry.getValue());

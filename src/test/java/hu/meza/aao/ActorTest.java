@@ -26,8 +26,8 @@ public class ActorTest {
 	public void testLastAction() {
 		Action action = Mockito.mock(Action.class);
 		actor.execute(action);
-		Assert.assertEquals("Last action was not recorded properly with the actor", action,
-							actor.lastAction());
+		Assert
+			.assertEquals("Last action was not recorded properly with the actor", action, actor.lastAction());
 	}
 
 	@Test
