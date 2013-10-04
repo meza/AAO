@@ -4,7 +4,7 @@
     <name>Actors-Actions-Outcomes framework for BDD</name>
     <groupId>hu.meza</groupId>
     <artifactId>aao</artifactId>
-    <version>2.0.1</version>
+    <version>2.0.2-SNAPSHOT</version>
 
     <description>A lightweight framework to enhance the features of cucumber-jvm</description>
     <url>https://github.com/meza/AAO</url>
