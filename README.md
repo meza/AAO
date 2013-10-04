@@ -201,4 +201,5 @@ To use it for ```Actor``` and ```Action``` tracking, you need to pass your ```Sc
 
 ### Usage
 
-Until further documentation, please refer to the example in ```hu.meza.aao.example.ContextAwareStepDefs```
+Until further documentation, please refer to the example in [```hu.meza.aao.example.ContextAwareStepDefs```](src/test/java/hu/meza/aao/example/ContextAwareStepDefs.java)
+
