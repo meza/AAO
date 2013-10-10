@@ -7,10 +7,12 @@ import org.mockito.Mockito;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 public class ActorManagerTest {
 
+	private final List<String> relatives = Arrays.asList("he", "his", "him", "she", "her");
 	private ActorManager actorManager;
 
 	@Before
@@ -33,25 +35,25 @@ public class ActorManagerTest {
 	@Test
 	public void testRelativeActorManaging() {
 
-		List<String> relatives = Arrays.asList("he", "his", "him", "she", "her");
-
 		for (String relative : relatives) {
 			Actor firstActor = Mockito.mock(Actor.class);
 			actorManager.addActor(randomLabel(), firstActor);
 			Actor actual = actorManager.getActor(relative);
-			Assert.assertEquals("The wrong actor was returned from the actor manager", firstActor, actual);
+			Assert.assertEquals(
+				"The wrong actor was returned from the actor manager when using relative references",
+				firstActor, actual);
 		}
 
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testRelativeAdd() {
-		actorManager.addActor("she", Mockito.mock(Actor.class));
+		actorManager.addActor(randomRelativeActor(), Mockito.mock(Actor.class));
 	}
 
 	@Test(expected = ActorManagerIsEmptyException.class)
 	public void testRelativeWithoutActors() {
-		actorManager.getActor("he");
+		actorManager.getActor(randomRelativeActor());
 	}
 
 	@Test(expected = ActorNotFoundException.class)
@@ -89,6 +91,11 @@ public class ActorManagerTest {
 
 	private String randomLabel() {
 		return UUID.randomUUID().toString();
+	}
+
+	private String randomRelativeActor() {
+		Random random = new Random();
+		return relatives.get(random.nextInt(relatives.size() - 1));
 	}
 
 }
