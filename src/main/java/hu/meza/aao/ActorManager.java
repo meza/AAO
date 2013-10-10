@@ -1,6 +1,7 @@
 package hu.meza.aao;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -72,8 +73,9 @@ public class ActorManager implements Iterable<Actor> {
 	}
 
 	private boolean isRelativeActor(String label) {
-		return "he".equals(label.toLowerCase()) || "she".equals(label.toLowerCase()) ||
-			   "his".equals(label.toLowerCase()) || "her".equals(label.toLowerCase());
+
+		List<String> relativeWords = Arrays.asList("she", "her", "he", "his", "him");
+		return relativeWords.contains(label.toLowerCase());
 	}
 
 }

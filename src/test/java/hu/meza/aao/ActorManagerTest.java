@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 public class ActorManagerTest {
@@ -31,15 +33,14 @@ public class ActorManagerTest {
 	@Test
 	public void testRelativeActorManaging() {
 
-		Actor firstActor = Mockito.mock(Actor.class);
-		actorManager.addActor(randomLabel(), firstActor);
-		Actor actual = actorManager.getActor("he");
-		Assert.assertEquals("The wrong actor was returned from the actor manager", firstActor, actual);
+		List<String> relatives = Arrays.asList("he", "his", "him", "she", "her");
 
-		Actor secondActor = Mockito.mock(Actor.class);
-		actorManager.addActor(randomLabel(), secondActor);
-		actual = actorManager.getActor("she");
-		Assert.assertEquals("The wrong actor was returned from the actor manager", secondActor, actual);
+		for (String relative : relatives) {
+			Actor firstActor = Mockito.mock(Actor.class);
+			actorManager.addActor(randomLabel(), firstActor);
+			Actor actual = actorManager.getActor(relative);
+			Assert.assertEquals("The wrong actor was returned from the actor manager", firstActor, actual);
+		}
 
 	}
 
