@@ -72,7 +72,8 @@ public class ActorManager implements Iterable<Actor> {
 	}
 
 	private boolean isRelativeActor(String label) {
-		return "he".equals(label.toLowerCase()) || "she".equals(label.toLowerCase());
+		return "he".equals(label.toLowerCase()) || "she".equals(label.toLowerCase()) ||
+			   "his".equals(label.toLowerCase()) || "her".equals(label.toLowerCase());
 	}
 
 }
