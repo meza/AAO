@@ -58,7 +58,7 @@ How could you test that a simple user cannot reach the admin functions, if your 
   <groupId>hu.meza</groupId>
   <artifactId>aao</artifactId>
   <version>RELEASE</version>
-</dependency
+</dependency>
 ```
 
 or if you're interested in the bleding edge:
@@ -67,7 +67,7 @@ or if you're interested in the bleding edge:
   <groupId>hu.meza</groupId>
   <artifactId>aao</artifactId>
   <version>LATEST_SNAPSHOT</version>
-</dependency
+</dependency>
 ```
 
 
